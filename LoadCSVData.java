@@ -7,7 +7,7 @@ import java.util.List;
 public class LoadCSVData {
     public static void main(String[] args) {
 
-        System.out.println("\nData from Customers Table:");
+        System.out.println("Data from Customers Table:");
         List<String[]> csvData1 = loadCSV("customers_data.csv", ",", 5);
         printCSVData(csvData1);
 
@@ -25,7 +25,7 @@ public class LoadCSVData {
             // Read the header line
             String header = br.readLine();
             if (header != null) {
-                System.out.println("Header: " + header);
+                System.out.println("\nHeader: " + header);
             }
 
             // Read and process each line in the file, but limit to maxRows
