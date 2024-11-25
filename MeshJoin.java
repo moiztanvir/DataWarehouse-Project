@@ -538,17 +538,6 @@ public class MeshJoin {
             }
         }
 
-
-    // private static void detailedSupplierSalesContribution(Connection connection) throws SQLException {
-    //     String query = "SELECT SUM(SALE) AS TOTAL_SALES " +
-    //                    "FROM FACT_TRANSACTIONS";
-    //     try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
-    //         if (rs.next()) {
-    //             System.out.println("Total Sales Contribution from All Suppliers: " + rs.getDouble("TOTAL_SALES"));
-    //         }
-    //     }
-    // }
-
     private static void seasonalAnalysisProductSales(Connection connection) throws SQLException {
         String query = "SELECT\n" +
                        "    p.product_name,\n" +
@@ -590,16 +579,6 @@ public class MeshJoin {
             // }
         }
     }
-
-    // private static void seasonalAnalysisProductSales(Connection connection) throws SQLException {
-    //     String query = "SELECT SUM(SALE) AS TOTAL_SALES " +
-    //                    "FROM FACT_TRANSACTIONS";
-    //     try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
-    //         if (rs.next()) {
-    //             System.out.println("Total Sales Across All Seasons: " + rs.getDouble("TOTAL_SALES"));
-    //         }
-    //     }
-    // }
 
     private static void storeSupplierMonthlyRevenueVolatility(Connection connection) throws SQLException {
         String query = "SELECT AVG(VOLATILITY) AS AVERAGE_VOLATILITY " +
@@ -676,16 +655,6 @@ public class MeshJoin {
         }
     }
 
-    // private static void revenueVolumeAnalysisH1H2(Connection connection) throws SQLException {
-    //     String query = "SELECT SUM(CASE WHEN MONTH(ORDER_DATE) <= 6 THEN SALE ELSE 0 END) AS H1_REVENUE " +
-    //                    "FROM FACT_TRANSACTIONS";
-    //     try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
-    //         if (rs.next()) {
-    //             System.out.println("Total Revenue for H1: " + rs.getDouble("H1_REVENUE"));
-    //         }
-    //     }
-    // }
-
     private static void countHighRevenueSpikes(Connection connection) throws SQLException {
         String query = 
             "WITH DailySales AS ( " +
@@ -733,7 +702,6 @@ public class MeshJoin {
             return "View STORE_QUARTERLY_SALES created successfully."; // Return success message
         }
     }
-    // Other OLAP query methods (Q2 to Q10) would follow a similar pattern...
 
     static class Transaction {
         private String orderId;
