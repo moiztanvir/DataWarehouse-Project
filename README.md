@@ -7,7 +7,9 @@ This project implements a near-real-time Data Warehouse (DW) for the METRO Shopp
 The project consists of three main files:
  
 metro.sql: Creates the star schema in the database, including fact and dimension tables.
+
 MeshJoin.java: Implements the ETL pipeline using the MESHJOIN algorithm to load and enrich data.
+
 olap_queries.sql: Contains OLAP queries to analyze the loaded data.
 
 ## Prerequisites
