@@ -85,19 +85,31 @@ java -cp .;mysql-connector-xxx.jar MeshJoin
 
 ### Step 4: Running OLAP Queries
 
-Open the olap_queries.sql file in your SQL client.
-Execute each query to generate insights, such as:
-Top revenue-generating products.
-Quarterly revenue growth by store.
-Seasonal sales trends and more.
+Open the olap_queries.sql file in your SQL client. Execute each query to generate insights, such as:
+
+- Top revenue-generating products.
+
+- Quarterly revenue growth by store.
+
+- Seasonal sales trends and more, etc. 
+
 Save the query results if needed for reporting purposes.
-Input Files
-customers_data.csv:
+
+### Input Files
+
+- customers_data.csv:
+
 Columns: CUSTOMER_ID, CUSTOMER_NAME, GENDER.
-products_data.csv:
-Columns: PRODUCT_ID, PRODUCT_NAME, PRODUCT_PRICE, SUPPLIER_ID, SUPPLIER_NAME, STORE_ID, STORE_NAME.
-transactions.csv:
+
+- products_data.csv:
+
+Columns: PRODUCT_ID, PRODUCT_NAME, PRODUCT_PRICE, SUPPLIER_ID, SUPPLIER_NAME, STORE_ID, 
+STORE_NAME.
+
+- transactions.csv:
+
 Columns: ORDER_ID, ORDER_DATE, PRODUCT_ID, CUSTOMER_ID, QUANTITY.
+
 Ensure these files are formatted correctly and placed in the root directory.
 
 ## Expected Outputs
@@ -106,16 +118,25 @@ Ensure these files are formatted correctly and placed in the root directory.
 
 A fully populated FACT_TRANSACTIONS table with enriched transactional data.
 OLAP Query Results:
-Revenue trends, growth rates, product affinities, and supplier contributions.
-Error Handling
-Missing or malformed data in CSV files:
-Skipped with a warning in the console.
-Incorrect database credentials:
-The program will terminate with an error message.
-Pre-existing records:
-The program uses ON DUPLICATE KEY UPDATE to update existing records.
-Additional Notes
-Modify partitionSize and chunkSize variables in the MeshJoin.java file to optimize performance based on system capabilities.
-Review console output for logs and warnings during the ETL process.
+
+- Revenue trends, growth rates, product affinities, and supplier contributions, etc.
+
+### Error Handling
+
+- Missing or malformed data in CSV files:
+
+- Skipped with a warning in the console.
+
+- Incorrect database credentials:
+
+- The program will terminate with an error message.
+
+- Pre-existing records:
+
+- The program uses ON DUPLICATE KEY UPDATE to update existing records.
+
+### Additional Notes
+
+Modify partitionSize and chunkSize variables in the MeshJoin.java file to optimize performance based on system capabilities. Review console output for logs and warnings during the ETL process.
 
 This ReadMe file provides clear instructions to operate the project from setup to execution and results generation. Let me know if further adjustments are required!
