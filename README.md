@@ -6,61 +6,82 @@ This project implements a near-real-time Data Warehouse (DW) for the METRO Shopp
 ## Project Structure
 The project consists of three main files:
  
-metro.sql: Creates the star schema in the database, including fact and dimension tables.
+- metro.sql: Creates the star schema in the database, including fact and dimension tables.
 
-MeshJoin.java: Implements the ETL pipeline using the MESHJOIN algorithm to load and enrich data.
+- MeshJoin.java: Implements the ETL pipeline using the MESHJOIN algorithm to load and enrich data.
 
-olap_queries.sql: Contains OLAP queries to analyze the loaded data.
+- olap_queries.sql: Contains OLAP queries to analyze the loaded data.
 
 ## Prerequisites
 ### Software Requirements:
 
-Java Development Kit (JDK) 8 or higher.
-Visual Studio Code, Eclipse IDE (or any Java IDE).
-MySQL Server and Workbench.
-MySQL JDBC Connector.
-Files Required:
+- Java Development Kit (JDK) 8 or higher.
 
-### CSV files for:
-customers_data.csv (Customer information).
-products_data.csv (Product and supplier information).
-transactions.csv (Transaction records).
-Environment Configuration:
+- Visual Studio Code, Eclipse IDE (or any Java IDE).
 
-A MySQL database named metro_dw should be created.
-Ensure all required CSV files are placed in the project's root directory.
+- MySQL Server and Workbench.
+
+- MySQL JDBC Connector (e.g mysql-connector-xxx.jar)
+
+### CSV Files Required:
+
+- customers_data.csv (Customer information).
+
+- products_data.csv (Product and supplier information).
+
+- transactions.csv (Transaction records).
+
+### Environment Configuration:
+
+A MySQL database named metro_dw should be created. Ensure all required CSV files are placed in the project's root directory.
 
 ## Step-by-Step Guide
 
 ### Step 1: Setting up the Database
 
-Open MySQL Workbench or your preferred SQL client.
-Execute the metro.sql script to create the star schema:
-This will create the FACT_TRANSACTIONS table and the dimension tables (CUSTOMERS, PRODUCTS, etc.).
-Ensure no tables with the same name exist, as the script will drop pre-existing tables.
+- Open MySQL Workbench or your preferred SQL client.
+
+- Execute the metro.sql script to create the star schema.
+
+- This will create the FACT_TRANSACTIONS table and the dimension tables (CUSTOMERS, PRODUCTS, TRANSACTIONS).
+
+- Ensure no tables with the same name exist, as the script will drop pre-existing tables.
 
 ### Step 2: Importing the Project
 
-Open Visual Studio Code or Eclipse IDE.
-Create a new Java project and name it MeshJoinProject.
-Add the provided MeshJoin.java file to the src folder of your project.
-Add the MySQL JDBC connector to your project:
-Right-click the project > Build Path > Add External JARs.
-Select the downloaded JDBC connector JAR file.
+- Open Visual Studio Code or Eclipse IDE.
+
+- Create a new Java project and name it MeshJoinProject.
+
+- Add the provided MeshJoin.java file to the main folder of your project.
+
+- Add the MySQL JDBC connector to your project
+
+- Select the downloaded JDBC connector JAR file.
 
 ### Step 3: Running the MESHJOIN Algorithm
 
-Open the MeshJoin.java file in Eclipse.
-Modify the database connection parameters:
-Replace DB_URL with your MySQL server address (e.g., jdbc:mysql://localhost:3306/metro_dw).
-Leave the USER and PASS variables blank; these will be entered at runtime.
-Run the program:
-Click Run or press Ctrl + F11.
-Enter the MySQL username and password when prompted.
-The program will:
-Load the CUSTOMERS, PRODUCTS, and TRANSACTIONS data from the respective CSV files into their tables.
-Enrich transactional data using the MESHJOIN algorithm.
-Populate the FACT_TRANSACTIONS table in the DW.
+- Open the MeshJoin.java file in VS Code or Eclipse.
+
+- Modify the database connection parameters
+
+- Replace DB_URL with your MySQL server address (e.g., jdbc:mysql://localhost:3306/metro_dw).
+
+- Leave the USER and PASS variables blank; these will be entered at runtime.
+
+- Run the program using the following commands:
+
+javac -cp .;mysql-connector-xxx.jar MeshJoin.java
+
+java -cp .;mysql-connector-xxx.jar MeshJoin
+
+- Enter the MySQL username and password when prompted.
+
+- The program will load the CUSTOMERS, PRODUCTS, and TRANSACTIONS data from the respective CSV files into their tables.
+
+- Enrich transactional data using the MESHJOIN algorithm.
+
+- Populate the FACT_TRANSACTIONS table in the DW.
 
 ### Step 4: Running OLAP Queries
 
