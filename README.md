@@ -138,5 +138,3 @@ OLAP Query Results:
 ### Additional Notes
 
 Modify partitionSize and chunkSize variables in the MeshJoin.java file to optimize performance based on system capabilities. Review console output for logs and warnings during the ETL process.
-
-This ReadMe file provides clear instructions to operate the project from setup to execution and results generation. Let me know if further adjustments are required!
