@@ -1,4 +1,4 @@
-# DataWarehouse-Project
+# Metro Retail Store Data Warehouse Project
 
 ## Project Overview
 This project implements a near-real-time Data Warehouse (DW) for the METRO Shopping Store. It uses a star schema, the MESHJOIN algorithm, and SQL-based OLAP queries to analyze customer shopping behavior and generate actionable insights.
